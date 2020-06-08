@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include "chordFactory.hpp"
+#include "chordDecorator.hpp"
 
 int main(int argc, const char * argv[]) {
     std::cout << "Input chord name\n";
@@ -17,9 +18,16 @@ int main(int argc, const char * argv[]) {
     
     chord* tmp = new chord(in);
     chord* Major = tmp->chordFactory(maj);
+    chord* Minor = tmp->chordFactory(min);
+    
+    chord* Six = new sixChord(Major);
+    chord* Six2 = new sixChord(Minor);
+
     
     Major->printChord();
-    
-    
+    Minor->printChord();
+    Six->printChord();
+    Six2->printChord();
+
     return 0;
 }

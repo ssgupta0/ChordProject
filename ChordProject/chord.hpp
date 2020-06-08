@@ -9,7 +9,8 @@
 #ifndef chord_hpp
 #define chord_hpp
 
-enum chordType {_, maj, min};
+enum chordType {maj, min};
+enum Decorator {six, seven};
 
 
 #include <stdio.h>
@@ -25,6 +26,7 @@ public:
     
     std::string key;
     chordType type;
+    Decorator dec;
     
 public:
     chord();
@@ -51,7 +53,6 @@ chord::chord() {
     note3=0;
     note4=0;
     key = "C";
-    type = _;
 }
 
 chord::chord(std::string s ,int a, int b, int c, int d) {
@@ -109,14 +110,26 @@ bool chord::compareNote(int a, int b) {
 
 void chord::printChord() {
     std::string t = "";
-    if(type==1) {
+    std::string d = "";
+    if(type==0) {
         t="maj";
     }
-    else if (type==2) {
+    else if (type==1) {
         t="min";
     }
     
-    std::cout << key << t << ": " << "\n\t" << convertToNote(note4);
+    if(this->dec==0) {
+        d = "6";
+    }
+    else if (this->dec==1) {
+        d = "7";
+    }
+    
+    
+    std::cout << "DECORATOR=" << dec << std::endl;
+
+    
+    std::cout << key << t << dec << ": " << "\n\t" << convertToNote(note4);
     std::cout << "\n\t" << convertToNote(note3);
     std::cout << "\n\t" << convertToNote(note2);
     std::cout << "\n\t" << convertToNote(note1) << std::endl;
