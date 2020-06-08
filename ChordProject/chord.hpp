@@ -10,7 +10,7 @@
 #define chord_hpp
 
 enum chordType {maj, min};
-enum Decorator {six, seven};
+enum Decorator {_, six, seven};
 
 
 #include <stdio.h>
@@ -89,7 +89,7 @@ int chord::convertToNum(std::string n) {
     }
     
     std::string letter[12] = {"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"};
-        
+    
     
     for(int i = 0; i<12; i++) {
         if(letter[i]==note) {
@@ -118,18 +118,14 @@ void chord::printChord() {
         t="min";
     }
     
-    if(this->dec==0) {
+    if(this->dec==1) {
         d = "6";
     }
-    else if (this->dec==1) {
+    else if (this->dec==2) {
         d = "7";
     }
     
-    
-    std::cout << "DECORATOR=" << dec << std::endl;
-
-    
-    std::cout << key << t << dec << ": " << "\n\t" << convertToNote(note4);
+    std::cout << key << t << d << ": " << "\n\t" << convertToNote(note4);
     std::cout << "\n\t" << convertToNote(note3);
     std::cout << "\n\t" << convertToNote(note2);
     std::cout << "\n\t" << convertToNote(note1) << std::endl;
