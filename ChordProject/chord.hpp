@@ -69,7 +69,8 @@ std::string chord::convertToNote(int n) {
     
     std::string letter[12] = {"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"};
     
-    return ( letter[note] + std::to_string((int)n/12 + 4) );
+    
+    return ( letter[note] + std::to_string((int)n/12 + 1) );
 }
 
 int chord::convertToNum(std::string n) {
@@ -78,9 +79,18 @@ int chord::convertToNum(std::string n) {
     
     //std::cout << "n[1]: " << n[1];
     
-    if(n.length()==3) {
+    if(n.length()==4) {
+        note=(n[0] + n[1] + n[2]);
+        num = std::atoi(&n[3]);
+    }
+    else if(n.length()==3) {
+        if((n[1]=='#' && n[2]=='#') || (n[1]=='b'&&n[2]=='b')) {
+            note=n;
+        }
+        else {
         note=(n[0] + n[1]);
-        num = n[2];
+        num = std::atoi(&n[2]);
+        }
     }
     else if(n.length()==2) {
         if((n[1])=='#' || n[1]=='b') {
@@ -88,7 +98,7 @@ int chord::convertToNum(std::string n) {
         }
         else {
             note=(n[0]);
-            num = n[1];
+            num = std::atoi(&n[1]);
         }
     }
     else if(n.length()==1) {
