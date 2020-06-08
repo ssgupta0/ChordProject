@@ -7,9 +7,19 @@
 //
 
 #include <iostream>
+#include "chordFactory.hpp"
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
     std::cout << "Input chord name\n";
+    std::string in;
+    
+    std::cin >> in;
+    
+    chord* tmp = new chord(in);
+    chord* Major = tmp->chordFactory(maj);
+    
+    
+    
+    
     return 0;
 }

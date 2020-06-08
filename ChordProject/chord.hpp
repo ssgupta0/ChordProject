@@ -9,13 +9,15 @@
 #ifndef chord_hpp
 #define chord_hpp
 
+enum chordType {maj, min};
+
 
 #include <stdio.h>
 #include <string>
 #include <iostream>
 
 class chord {
-private:
+public:
     int note1;
     int note2;
     int note3;
@@ -25,11 +27,21 @@ private:
     
 public:
     chord();
+    chord(std::string in) {
+        note1=0;        //C4
+        note2=0;
+        note3=0;
+        note4=0;
+        key = in;
+    }
     chord(std::string,int,int,int,int);
     
     std::string convertToNote(int note);
     int convertToNum(std::string note);
     bool compareNote(int a, int b);
+    chord* chordFactory(chordType type);
+    
+    void printChord();
 };
 
 chord::chord() {
@@ -63,26 +75,39 @@ int chord::convertToNum(std::string n) {
     
     if(n.length()==3) {
         note=(n[0] + n[1]);
-        num = std::stoi(n[2]);
+        num = n[2];
     }
     else if(n.length()==2) {
         note=(n[0]);
-        num = std::stoi(n[1]);
+        num = n[1];
     }
     else if(n.length()==1) {
         note=n;
     }
     
     std::string letter[12] = {"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"};
-    for(int i = 0; i<12) {
+    for(int i = 0; i<12; i++) {
         if(letter[i]==note) {
             return i+num;
         }
     }
     
     std::cout << n << " not present." << std::endl;
+    return -1;
 }
 
+bool chord::compareNote(int a, int b) {
+    if(a%12==b%12) {
+        return true;
+    }
+    return false;
+}
 
+void chord::printChord() {
+    std::cout << "\n\t" << convertToNote(note4);
+    std::cout << "\n\t" << convertToNote(note3);
+    std::cout << "\n\t" << convertToNote(note2);
+    std::cout << "\n\t" << convertToNote(note1) << std::endl;
+}
 
 #endif

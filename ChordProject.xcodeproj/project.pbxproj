@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		942D581D248D767800095F11 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 942D581C248D767800095F11 /* main.cpp */; };
 		942D5827248D7B9100095F11 /* chord.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 942D5826248D7B9100095F11 /* chord.hpp */; };
+		94A61E28248DB169009CA8FD /* chordFactory.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 942D5824248D7AAC00095F11 /* chordFactory.hpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -124,6 +125,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94A61E28248DB169009CA8FD /* chordFactory.hpp in Sources */,
 				942D5827248D7B9100095F11 /* chord.hpp in Sources */,
 				942D581D248D767800095F11 /* main.cpp in Sources */,
 			);
@@ -244,6 +246,7 @@
 		942D5821248D767800095F11 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3V2VQVFGJD;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -254,6 +257,7 @@
 		942D5822248D767800095F11 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3V2VQVFGJD;
 				ENABLE_HARDENED_RUNTIME = YES;
