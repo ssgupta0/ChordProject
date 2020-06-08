@@ -9,7 +9,7 @@
 #ifndef chord_hpp
 #define chord_hpp
 
-enum chordType {maj, min};
+enum chordType {_, maj, min};
 
 
 #include <stdio.h>
@@ -24,6 +24,7 @@ public:
     int note4;
     
     std::string key;
+    chordType type;
     
 public:
     chord();
@@ -45,11 +46,12 @@ public:
 };
 
 chord::chord() {
-    note1=0;        //C4
+    note1=0;        //C1
     note2=0;
     note3=0;
     note4=0;
     key = "C";
+    type = _;
 }
 
 chord::chord(std::string s ,int a, int b, int c, int d) {
@@ -86,9 +88,11 @@ int chord::convertToNum(std::string n) {
     }
     
     std::string letter[12] = {"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"};
+        
+    
     for(int i = 0; i<12; i++) {
         if(letter[i]==note) {
-            return i+num;
+            return i + (num*12);
         }
     }
     
@@ -104,7 +108,15 @@ bool chord::compareNote(int a, int b) {
 }
 
 void chord::printChord() {
-    std::cout << "\n\t" << convertToNote(note4);
+    std::string t = "";
+    if(type==1) {
+        t="maj";
+    }
+    else if (type==2) {
+        t="min";
+    }
+    
+    std::cout << key << t << ": " << "\n\t" << convertToNote(note4);
     std::cout << "\n\t" << convertToNote(note3);
     std::cout << "\n\t" << convertToNote(note2);
     std::cout << "\n\t" << convertToNote(note1) << std::endl;

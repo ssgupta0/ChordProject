@@ -18,7 +18,7 @@ int main(int argc, const char * argv[]) {
     chord* tmp = new chord(in);
     chord* Major = tmp->chordFactory(maj);
     
-    
+    Major->printChord();
     
     
     return 0;
