@@ -42,4 +42,19 @@ public:
     }
 };
 
+class sevenChord: public chordDecorator {
+public:
+    sevenChord(chord* c) : chordDecorator(c) {
+        type=c->type;
+        note1 = c->note1;
+        note2 = c->note2;
+        note3 = c->note3;
+        note4 = c->note4;
+        
+        note4-=2;
+        
+        dec=seven;
+    }
+};
+
 #endif

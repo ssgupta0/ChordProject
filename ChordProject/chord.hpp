@@ -76,24 +76,36 @@ int chord::convertToNum(std::string n) {
     std::string note = "";
     int num = 0;
     
+    //std::cout << "n[1]: " << n[1];
+    
     if(n.length()==3) {
         note=(n[0] + n[1]);
         num = n[2];
     }
     else if(n.length()==2) {
-        note=(n[0]);
-        num = n[1];
+        if((n[1])=='#' || n[1]=='b') {
+            note=n;
+        }
+        else {
+            note=(n[0]);
+            num = n[1];
+        }
     }
     else if(n.length()==1) {
         note=n;
     }
     
-    std::string letter[12] = {"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"};
-    
+    std::string letter[3][12] = {
+        {"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"},
+        {"B#", "B##", "C##", "Fbb", "D##", "E#", "E##", "F##", "", "G##", "", "A##"},
+        {"Dbb", "Db", "Ebb", "Eb", "Fb", "Gbb", "Gb", "Abb", "Ab", "Bbb", "Bb", "Cb"}
+    };
     
     for(int i = 0; i<12; i++) {
-        if(letter[i]==note) {
-            return i + (num*12);
+        for(int w = 0; w<3; w++) {
+            if(letter[w][i]==note) {
+                return i + (num*12);
+            }
         }
     }
     

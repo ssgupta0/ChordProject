@@ -21,13 +21,13 @@ int main(int argc, const char * argv[]) {
     chord* Minor = tmp->chordFactory(min);
     
     chord* Six = new sixChord(Major);
-    chord* Six2 = new sixChord(Minor);
+    chord* Seven = new sevenChord(Minor);
 
     
     Major->printChord();
     Minor->printChord();
     Six->printChord();
-    Six2->printChord();
+    Seven->printChord();
 
     return 0;
 }
