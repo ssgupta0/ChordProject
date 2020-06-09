@@ -84,6 +84,15 @@ public:
     }
 };
 
+class dropRootVisitor : public chordVisitor {
+    void visit(MajChord *element) {
+        element->note1-=12;
+    }
+    void visit(MinChord *element) {
+        element->note1-=12;
+    }
+};
+
 
 
 #endif /* chordVisitor_h */
