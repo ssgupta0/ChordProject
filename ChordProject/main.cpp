@@ -19,26 +19,6 @@ void printC(chord* c) {
 }
 
 int main(int argc, const char * argv[]) {
-    //    std::cout << "Input chord name\n";
-    //    std::string in;
-    //    std::cin >> in;
-    //    chord* tmp = new chord(in);
-    //    chord* Major = tmp->chordFactory(maj);
-    //    chord* Minor = tmp->chordFactory(min);
-    //
-    //    chord* Six = new sixChord(Major);
-    //    chord* Seven = new sevenChord(Minor);
-    //
-    //
-    //    Major->printChord();
-    //    Minor->printChord();
-    //    Six->printChord();
-    //    Seven->printChord();
-    //
-    //    std::cout<<"removing root"<<std::endl;
-    //    MinChord* MinRemRoot = static_cast<MinChord*>(Minor);
-    //    MinRemRoot->Accept(new remove2Visitor);
-    //    MinRemRoot->printChord();
     
     bool corInput = false;
     chord* base;
