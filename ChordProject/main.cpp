@@ -154,6 +154,7 @@ int main(int argc, const char * argv[]) {
                 if(choice=="a") {
                     corInput=false;
                     std::cout<<"Select what to Move:\n\tDrop Root (a)\tRaise Soprano (b)"<<std::endl;
+                    std::cin>>choice;
                     while(!corInput) {
                         corInput=true;
                         if(choice=="a") {
@@ -169,13 +170,17 @@ int main(int argc, const char * argv[]) {
                 }
                 
                 else if (choice=="b") {
-                    std::cout<<"Select what to Remove:\nremove root\t(a)\n\tremove 3rd\t(b)\n\tremove 5th\t(c)\n\t";
+                    std::cout<<"Select what to Remove:\n\tremove root\t\t(a)\n\tremove 3rd\t\t(b)\n\tremove 5th\t\t(c)\n\t";
+                    
                     if(current->dec==2) {
                         std::cout<<"remove seventh\t(d)"<<std::endl;
                     }
                     else {
                         std::cout<<"remove octave\t(d)"<<std::endl;
                     }
+                    std::cin>>choice;
+
+                    corInput=false;
                     while(!corInput) {
                         corInput=true;
                         if(choice=="a") {

@@ -90,19 +90,29 @@ public:
 
 class dropRootVisitor : public chordVisitor {
     void visit(MajChord *element) {
+        if(element->note1-12 < 0) {
+            std::cout<<"Cannot drop root as it would be too low"<<std::endl;
+            return;
+        }
         element->note1-=12;
     }
     void visit(MinChord *element) {
+        if(element->note1-12 < 0) {
+            std::cout<<"Cannot drop root as it would be too low"<<std::endl;
+            return;
+        }
         element->note1-=12;
     }
 };
 
 class RaiseSopVisitor : public chordVisitor {
     void visit(MajChord *element) {
-        element->note1-=12;
+        
+        element->note4+=12;
     }
     void visit(MinChord *element) {
-        element->note1-=12;
+        
+        element->note4+=12;
     }
 };
 
