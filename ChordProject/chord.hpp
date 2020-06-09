@@ -15,7 +15,7 @@
 #include <string>
 #include <iostream>
 
-enum chordType {maj, min};
+enum chordType {dum,maj, min};
 enum Decorator {_, six, seven};
 
 class chordVisitor;
@@ -35,17 +35,25 @@ public:
     chordType type;
     Decorator dec;
     
-    void Accept(chordVisitor *visitor);
-
+    void Accept(chordVisitor *visitor) {};
+    
     
 public:
     chord();
     chord(std::string in) {
-        note1=0;        //C4
-        note2=0;
-        note3=0;
-        note4=0;
+        int base = convertToNum(in);
+        if(base==-1) {
+            std::cout<<"INVALID SYNTAX (Was not able to read note value)\n\n"<<std::endl;
+            note1=-2;
+            return;
+        }
+        note1=base;
+        note2=base;
+        note3=base;
+        note4=base;
         key = in;
+        type=dum;
+        dec=_;
     }
     chord(std::string,int,int,int,int);
     
@@ -103,8 +111,8 @@ int chord::convertToNum(std::string n) {
             note=n;
         }
         else {
-        note=(n[0] + n[1]);
-        num = std::atoi(&n[2]);
+            note=(n[0] + n[1]);
+            num = std::atoi(&n[2]);
         }
     }
     else if(n.length()==2) {
@@ -134,7 +142,6 @@ int chord::convertToNum(std::string n) {
         }
     }
     
-    std::cout << n << " not present." << std::endl;
     return -1;
 }
 
@@ -148,10 +155,10 @@ bool chord::compareNote(int a, int b) {
 void chord::printChord() {
     std::string t = "";
     std::string d = "";
-    if(type==0) {
+    if(type==1) {
         t="maj";
     }
-    else if (type==1) {
+    else if (type==2) {
         t="min";
     }
     
@@ -161,11 +168,19 @@ void chord::printChord() {
     else if (this->dec==2) {
         d = "7";
     }
+    std::cout<<std::endl;
+
+    std::cout << key << t << d << ": "<<std::endl;
+    if(note4>=0)
+        std::cout << "\t" << convertToNote(note4);
+    if(note3>=0)
+        std::cout << "\n\t" << convertToNote(note3);
+    if(note2>=0)
+        std::cout << "\n\t" << convertToNote(note2);
+    if(note1>=0)
+        std::cout << "\n\t" << convertToNote(note1);
     
-    std::cout << key << t << d << ": " << "\n\t" << convertToNote(note4);
-    std::cout << "\n\t" << convertToNote(note3);
-    std::cout << "\n\t" << convertToNote(note2);
-    std::cout << "\n\t" << convertToNote(note1) << std::endl;
+    std::cout<<std::endl;
 }
 
 

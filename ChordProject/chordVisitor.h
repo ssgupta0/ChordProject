@@ -78,13 +78,26 @@ class remove4Visitor : public chordVisitor {
 public:
     void visit( MajChord *element)  {
         element->note4=-1;
+        if(element->dec==2)
+            element->dec=_;
     }
     void visit( MinChord *element)  {
         element->note4=-1;
+        if(element->dec==2)
+            element->dec=_;
     }
 };
 
 class dropRootVisitor : public chordVisitor {
+    void visit(MajChord *element) {
+        element->note1-=12;
+    }
+    void visit(MinChord *element) {
+        element->note1-=12;
+    }
+};
+
+class RaiseSopVisitor : public chordVisitor {
     void visit(MajChord *element) {
         element->note1-=12;
     }
