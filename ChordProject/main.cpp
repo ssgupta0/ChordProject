@@ -32,22 +32,11 @@ int main(int argc, const char * argv[]) {
     Six->printChord();
     Seven->printChord();
 
-    std::cout<<"remove root"<<std::endl;
-    
-    //std::array<Component *, 2> components = {new MajChord, new MajChord};
-    
-    //MajChord* MajorMin1 = Major;
-    
+    std::cout<<"removing root"<<std::endl;
     MinChord* MinRemRoot = static_cast<MinChord*>(Minor);
-
     MinRemRoot->Accept(new remove1Visitor);
-    
     MinRemRoot->printChord();
     
-    
-    //ClientCode(components, rem1);
-    
-    //rem1->printChord();
-    
+
     return 0;
 }
