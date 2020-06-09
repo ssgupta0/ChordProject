@@ -6,8 +6,8 @@
 //  Copyright © 2020 Shashvat Gupta. All rights reserved.
 //
 
-#ifndef chordVisitor_h
-#define chordVisitor_h
+#ifndef chordVisitor_hpp
+#define chordVisitor_hpp
 
 #include "chord.hpp"
 #include <array>
@@ -118,4 +118,4 @@ class RaiseSopVisitor : public chordVisitor {
 
 
 
-#endif /* chordVisitor_h */
+#endif /* chordVisitor_hpp */

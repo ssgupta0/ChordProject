@@ -10,7 +10,7 @@
 
 #include "chordFactory.hpp"
 #include "chordDecorator.hpp"
-#include "chordVisitor.h"
+#include "chordVisitor.hpp"
 
 
 void printC(chord* c) {
