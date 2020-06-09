@@ -12,10 +12,14 @@
 enum chordType {maj, min};
 enum Decorator {_, six, seven};
 
+#define startingChord 0
 
 #include <stdio.h>
 #include <string>
 #include <iostream>
+//#include "chordVisitor.h"
+
+class chordVisitor;
 
 class chord {
 public:
@@ -27,6 +31,9 @@ public:
     std::string key;
     chordType type;
     Decorator dec;
+    
+    void Accept(chordVisitor *visitor);
+
     
 public:
     chord();
@@ -65,12 +72,17 @@ chord::chord(std::string s ,int a, int b, int c, int d) {
 }
 
 std::string chord::convertToNote(int n) {
+    
+    if(n==-1) {
+        return "";
+    }
+    
     int note = n%12;
     
     std::string letter[12] = {"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"};
     
     
-    return ( letter[note] + std::to_string((int)n/12 + 1) );
+    return ( letter[note] + std::to_string((int)n/12 + startingChord) );
 }
 
 int chord::convertToNum(std::string n) {
@@ -152,5 +164,43 @@ void chord::printChord() {
     std::cout << "\n\t" << convertToNote(note2);
     std::cout << "\n\t" << convertToNote(note1) << std::endl;
 }
+
+
+
+class MajChord;
+class MinChord;
+
+class chordVisitor {
+public:
+    virtual void VisitRemove1( MajChord *element) = 0;
+    virtual void VisitRemove1( MinChord *element) = 0;
+};
+
+
+class MinChord : public chord {
+public:
+    void Accept(chordVisitor *visitor) {
+        visitor->VisitRemove1(this);
+    }
+};
+class MajChord : public chord {
+public:
+    void Accept(chordVisitor *visitor) {
+        visitor->VisitRemove1(this);
+    }
+};
+
+class remove1Visitor : public chordVisitor {
+public:
+    void VisitRemove1( MajChord *element) override {
+        element->note1=-1;
+    }
+    void VisitRemove1( MinChord *element) override {
+        element->note1=-1;
+    }
+};
+
+
+
 
 #endif

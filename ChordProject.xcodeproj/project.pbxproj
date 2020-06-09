@@ -32,6 +32,7 @@
 		942D5826248D7B9100095F11 /* chord.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = chord.hpp; sourceTree = "<group>"; };
 		94A61E29248DD46E009CA8FD /* chordDecorator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = chordDecorator.hpp; sourceTree = "<group>"; };
 		94A61E2B248E19B6009CA8FD /* enharmonic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = enharmonic.h; sourceTree = "<group>"; };
+		94A61E2C248E2853009CA8FD /* chordVisitor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = chordVisitor.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +68,7 @@
 				942D581C248D767800095F11 /* main.cpp */,
 				942D5826248D7B9100095F11 /* chord.hpp */,
 				94A61E2B248E19B6009CA8FD /* enharmonic.h */,
+				94A61E2C248E2853009CA8FD /* chordVisitor.h */,
 				942D5824248D7AAC00095F11 /* chordFactory.hpp */,
 				94A61E29248DD46E009CA8FD /* chordDecorator.hpp */,
 			);
