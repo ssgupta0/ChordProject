@@ -9,4 +9,4 @@ scientifically proven "good" notes very simple!
 This project uses C++, with the inputs and outputs all being on the terminal command line.
 
 
-![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+![UML Diagram](https://github.com/ssgupta2/ChordProject/blob/master/ChordProject/Chord%20Creator-3.png)
