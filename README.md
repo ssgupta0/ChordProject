@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-Shashvat Gupta (sgupt051@ucr.edu)
 
-Chord Creator
-=======
 # Chord Creator
 
 A command line program that uses user input and minimal music theory knowledge to allow anyone to create and modify chords.
