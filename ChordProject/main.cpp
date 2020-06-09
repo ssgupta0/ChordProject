@@ -34,9 +34,8 @@ int main(int argc, const char * argv[]) {
 
     std::cout<<"removing root"<<std::endl;
     MinChord* MinRemRoot = static_cast<MinChord*>(Minor);
-    MinRemRoot->Accept(new remove1Visitor);
+    MinRemRoot->Accept(new remove2Visitor);
     MinRemRoot->printChord();
     
-
     return 0;
 }
