@@ -36,7 +36,7 @@
 		9440AD3B248FA371005664D2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9440AD3C248FA375005664D2 /* Factory_tests.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Factory_tests.hpp; sourceTree = "<group>"; };
 		9440AD3D248FA37C005664D2 /* Decorator_tests.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Decorator_tests.hpp; sourceTree = "<group>"; };
-		9440AD3E248FA380005664D2 /* Chord_tests.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Chord_tests.hpp; sourceTree = "<group>"; };
+		9440AD3F248FADA3005664D2 /* Chord_tests.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Chord_tests.hpp; sourceTree = "<group>"; };
 		94A61E29248DD46E009CA8FD /* chordDecorator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = chordDecorator.hpp; sourceTree = "<group>"; };
 		94A61E2C248E2853009CA8FD /* chordVisitor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = chordVisitor.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -80,9 +80,8 @@
 				9440AD3D248FA37C005664D2 /* Decorator_tests.hpp */,
 				9440AD3A248FA36E005664D2 /* Visitor_tests.hpp */,
 				9440AD3C248FA375005664D2 /* Factory_tests.hpp */,
-				9440AD3E248FA380005664D2 /* Chord_tests.hpp */,
 				9440AD38248FA36B005664D2 /* unit_tests.cpp */,
-				9440AD3E248FA380005664D2 /* Chord_tests.hpp */,
+				9440AD3F248FADA3005664D2 /* Chord_tests.hpp */,
 			);
 			path = ChordProject;
 			sourceTree = "<group>";
