@@ -9,17 +9,20 @@
 #ifndef chord_hpp
 #define chord_hpp
 
-enum chordType {maj, min};
-enum Decorator {_, six, seven};
-
 #define startingChord 0
 
 #include <stdio.h>
 #include <string>
 #include <iostream>
-//#include "chordVisitor.h"
+
+enum chordType {maj, min};
+enum Decorator {_, six, seven};
 
 class chordVisitor;
+
+//===========================//
+//========---CHORD---========//
+//===========================//
 
 class chord {
 public:
@@ -165,40 +168,6 @@ void chord::printChord() {
     std::cout << "\n\t" << convertToNote(note1) << std::endl;
 }
 
-
-
-class MajChord;
-class MinChord;
-
-class chordVisitor {
-public:
-    virtual void VisitRemove1( MajChord *element) = 0;
-    virtual void VisitRemove1( MinChord *element) = 0;
-};
-
-
-class MinChord : public chord {
-public:
-    void Accept(chordVisitor *visitor) {
-        visitor->VisitRemove1(this);
-    }
-};
-class MajChord : public chord {
-public:
-    void Accept(chordVisitor *visitor) {
-        visitor->VisitRemove1(this);
-    }
-};
-
-class remove1Visitor : public chordVisitor {
-public:
-    void VisitRemove1( MajChord *element) override {
-        element->note1=-1;
-    }
-    void VisitRemove1( MinChord *element) override {
-        element->note1=-1;
-    }
-};
 
 
 

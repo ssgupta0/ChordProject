@@ -12,6 +12,10 @@
 
 #include "chord.hpp"
 
+//===========================//
+//=======---FACTORY---=======//
+//===========================//
+
 class major: public chord {
 public:
      major(chord* c) {

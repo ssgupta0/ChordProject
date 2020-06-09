@@ -13,6 +13,9 @@
 #include <stdio.h>
 #include "chord.hpp"
 
+//===========================//
+//======---DECORATOR---======//
+//===========================//
 
 class chordDecorator: public chord {
 public:
